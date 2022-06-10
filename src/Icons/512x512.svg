@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <filter id="Trazado_3" x="34.957" y="161.834" width="350.531" height="198.852" filterUnits="userSpaceOnUse">
+      <feOffset dy="12" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Elipse_1" x="24" y="109" width="102" height="102" filterUnits="userSpaceOnUse">
+      <feOffset dx="12" dy="12" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-_512x512">
+      <rect width="512" height="512"/>
+    </clipPath>
+  </defs>
+  <g id="_512x512" data-name="512x512" clip-path="url(#clip-_512x512)">
+    <rect id="Rectángulo_1" data-name="Rectángulo 1" width="512" height="512" rx="100" fill="#53aaff"/>
+    <path id="Trazado_1" data-name="Trazado 1" d="M675.055,753.662c52.237-152.726,167.335-241.706,126.608-324.93S640.526,337.539,581.206,412.8,566.155,655.829,675.055,753.662Z" transform="translate(-538 -241.996)" fill="#ff6e6e"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Trazado_3)">
+      <path id="Trazado_3-2" data-name="Trazado 3" d="M129.336-55.215l20.84,5.264Q143.623-24.277,126.6-10.8T84.971,2.686q-25.459,0-41.411-10.366T19.282-37.705a107.127,107.127,0,0,1-8.325-42.217q0-24.6,9.4-42.915A64.4,64.4,0,0,1,47.1-150.659a78.153,78.153,0,0,1,38.188-9.507q23.633,0,39.746,12.031T147.49-114.3l-20.518,4.834q-5.479-17.188-15.9-25.029t-26.211-7.842q-18.154,0-30.347,8.7a45.949,45.949,0,0,0-17.134,23.364,94.062,94.062,0,0,0-4.941,30.239q0,20.088,5.854,35.073T56.5-22.559a51.065,51.065,0,0,0,26.748,7.412q17.51,0,29.648-10.1T129.336-55.215ZM175.205,0V-157.48h31.367l37.275,111.5Q249-30.4,251.367-22.666q2.686-8.594,8.379-25.244l37.705-109.57h28.037V0H305.4V-131.807L259.639,0h-18.8L195.293-134.062V0Z" transform="translate(42 328)" fill="#e8e8e8"/>
+    </g>
+    <path id="Trazado_2" data-name="Trazado 2" d="M4.824-32.656V-46.09H45.867v13.434Zm50.617,0V-46.09H96.484v13.434Zm55.813,62.863V-78.82h12.172v10.242a30,30,0,0,1,9.723-9.018A26.715,26.715,0,0,1,146.285-80.6a31.146,31.146,0,0,1,17.813,5.2A31.885,31.885,0,0,1,175.75-60.748,53.52,53.52,0,0,1,179.684-40a52.689,52.689,0,0,1-4.342,21.783A32.73,32.73,0,0,1,162.725-3.377a32.4,32.4,0,0,1-17.4,5.158,25.141,25.141,0,0,1-11.986-2.82,27.3,27.3,0,0,1-8.721-7.125V30.207Zm12.1-69.172q0,15.215,6.16,22.488T144.43-9.2q8.906,0,15.252-7.533t6.346-23.342q0-15.066-6.2-22.562t-14.807-7.5q-8.535,0-15.1,7.979T123.352-38.965Z" transform="translate(302 343)" fill="#e8e8e8"/>
+    <circle id="Elipse_2" data-name="Elipse 2" cx="151" cy="151" r="151" transform="translate(355 -154)" fill="#ffda48"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Elipse_1)">
+      <g id="Elipse_1-2" data-name="Elipse 1" transform="translate(30 115)" fill="none" stroke="#e8e8e8" stroke-width="12">
+        <circle cx="33" cy="33" r="33" stroke="none"/>
+        <circle cx="33" cy="33" r="27" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>
