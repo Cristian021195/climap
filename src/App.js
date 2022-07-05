@@ -1,6 +1,5 @@
 import axios from "axios";
-import { useEffect, useReducer, useState } from "react";
-import { Footer } from "./Components/Footer";
+import { useEffect, useReducer, useState, useMemo } from "react";
 import { Header } from "./Components/Header";
 import { Clima } from "./Pages/Clima";
 import { Conctacto } from "./Pages/Contacto";
@@ -12,6 +11,7 @@ import { Alert } from "./Components/Alert";
 import { ErrorProvider } from "./Contexts/ErrorContext";
 import {BrowserRouter as Router, Route, Routes, Red, Navigate } from "react-router-dom";
 import { NotFound } from "./Pages/NotFound";
+import { debounce } from "./Helpers/debounce";
 
 function App() {
   const [lugar, setLugar] = useState('');
@@ -20,18 +20,30 @@ function App() {
   const [state, dispatch] = useReducer(ErrorReducer, ErrorInitialState)
   const [error, setError] = useState(false);
 
+  const deboucedFetchData = useMemo(()=>{//memorizamos esta funcion que contiene la asincrona que a su vez es ejecutada de manera debounceada
+
+    async function datosClimap(lugar){
+      try {
+        const resp = await fetch(`
+          https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(lugar)}.json?types=country,locality,place&language=es&access_token=${PUBLIC_TOKENS.mapbox}
+        `)
+        const data = await resp.json();
+        setResult(data.features || [])
+        setError(false)
+  
+      } catch (error) {
+          setError(error.message)
+          setResult([])
+      }
+    }
+    return debounce(datosClimap, 600)//retorna la funcion debounceada
+  },[])//solo volvera a calcular el valor memorizado si cambia la dependencia (como no hay dependencia siempre estará memorizada)
+
   useEffect(()=>{
     if(lugar.length > 3){
-      axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(lugar)}.json`, { params: { types: 'country,locality,place', language: 'es', access_token:  PUBLIC_TOKENS.mapbox} })
-      .then(res=>{
-        setResult(res.data.features)
-        setError(false)
-      }).catch(err=>{
-        setError(err.message)
-        setResult([])
-      })
+      deboucedFetchData(lugar) //ejecuta la funcion que al final ejecuta la ultima debounceada con el delay
     }
-  },[lugar])
+  },[lugar, deboucedFetchData])
 
   return (
     <>
@@ -73,9 +85,4 @@ function App() {
     </>
   );
 }
-/*
-
-*/
-
-//console.log(result.map(res=>res.place_name))
 export default App;
